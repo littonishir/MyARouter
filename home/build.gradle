@@ -1,0 +1,27 @@
+import com.version.plugin.BuildConfig
+
+if (BuildConfig.isModule) {
+    apply plugin: 'com.android.application'
+} else {
+    apply plugin: 'com.android.library'
+}
+
+apply from: '../config.gradle'
+
+android {
+    sourceSets {
+        main {
+            if (BuildConfig.isModule) {
+                //如果是application，则编译主目录下AndroidManifest.xml
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+            } else {
+                //如果是library，则编译manifest下AndroidManifest.xml
+                manifest.srcFile 'src/main/manifest/AndroidManifest.xml'
+            }
+        }
+    }
+}
+
+dependencies {
+    implementation project(':common')
+}

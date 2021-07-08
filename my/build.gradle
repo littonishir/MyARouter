@@ -1,0 +1,50 @@
+
+import com.version.plugin.AndroidX
+import com.version.plugin.BuildConfig
+import com.version.plugin.Depend
+import com.version.plugin.Kt
+
+if (BuildConfig.isModule) {
+    apply plugin: 'com.android.application'
+} else {
+    apply plugin: 'com.android.library'
+}
+apply from:'../config.gradle'
+
+
+
+android {
+    compileSdkVersion BuildConfig.compileSdkVersion
+    buildToolsVersion BuildConfig.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion BuildConfig.minSdkVersion
+        targetSdkVersion BuildConfig.targetSdkVersion
+        versionCode BuildConfig.versionCode
+        versionName BuildConfig.versionName
+    }
+    sourceSets {
+        main {
+            if (BuildConfig.isModule) {
+                //如果是application，则编译主目录下AndroidManifest.xml
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+            } else {
+                //如果是library，则编译manifest下AndroidManifest.xml
+                manifest.srcFile 'src/main/manifest/AndroidManifest.xml'
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+
+    implementation project(':common')
+
+}

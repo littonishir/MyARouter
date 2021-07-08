@@ -1,0 +1,65 @@
+
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    ext.kotlin_version = "1.5.20"
+    ext.koin_version = '2.2.0-rc-3'
+    ext.arouter_register_version = '1.0.2'
+
+
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:4.1.1"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "com.alibaba:arouter-register:$arouter_register_version"
+
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+/**
+ * plugins {} 默认的行为是解析和应用插件
+ * 多项目构建中，apply false 来告诉 Gradle 不要应用插件
+ * 这个 id 就是在 versionPlugin 文件夹下 build.gradle 文件内定义的id
+ */
+plugins {
+    id "com.version.plugin" apply false
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+
+
+subprojects { subproject ->
+    // 默认应用所有子项目中
+    apply plugin: 'com.alibaba.arouter'
+    apply plugin: 'com.version.plugin'
+
+    // 如果想应用到某个子项目中，可以通过 subproject.name 来判断应用在哪个子项目中
+    // subproject.name 是你子项目的名字，示例如下
+    // 官方文档地址：https://guides.gradle.org/creating-multi-project-builds/#add_documentation
+    if (subproject.name == "app") {
+
+
+    }
+//    println(subproject.name)
+
+//    apply plugin: pluginName
+
+
+
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
