@@ -1,0 +1,57 @@
+import com.version.plugin.AndroidX
+import com.version.plugin.BuildConfig
+import com.version.plugin.Depend
+import com.version.plugin.Kt
+
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-parcelize'
+
+}
+
+android {
+    compileSdkVersion BuildConfig.compileSdkVersion
+    buildToolsVersion BuildConfig.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion BuildConfig.minSdkVersion
+        targetSdkVersion BuildConfig.targetSdkVersion
+        versionCode BuildConfig.versionCode
+        versionName BuildConfig.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    api Kt.kotlinStdlib
+    api AndroidX.coreKtx
+    api Depend.junit
+    api Depend.androidTestJunit
+    api Depend.espressoCore
+
+    api "com.squareup.retrofit2:retrofit:2.9.0"
+    api "com.squareup.retrofit2:converter-gson:2.9.0"
+    api 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.0'
+    api 'com.squareup.okhttp3:logging-interceptor:4.9.1'
+    api "org.jetbrains.kotlin:kotlin-android-extensions-runtime:1.5.20"
+
+
+
+}

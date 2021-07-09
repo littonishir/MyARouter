@@ -1,14 +1,18 @@
 package com.littonishir.common
 
 import android.app.Application
-import android.util.Log
 import com.alibaba.android.arouter.launcher.ARouter
+import com.littonishir.network.utils.RetrofitUtil
+import me.jessyan.autosize.AutoSizeConfig
+import me.jessyan.autosize.unit.Subunits
 
 class Common : Application() {
     override fun onCreate() {
         super.onCreate()
-        instance = this
+        mContext = this
+        RetrofitUtil.init(this)
         initARouter()
+        initAuto()
     }
 
     private fun initARouter() {
@@ -16,9 +20,11 @@ class Common : Application() {
         ARouter.openDebug()
         ARouter.init(this)
     }
-
+    private fun initAuto() {
+        AutoSizeConfig.getInstance().unitsManager.setSupportDP(false).supportSubunits = Subunits.MM
+    }
 
     companion object {
-        private lateinit var instance: Common
+        lateinit var mContext: Common
     }
 }

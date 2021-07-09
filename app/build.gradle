@@ -3,14 +3,12 @@ import com.version.plugin.BuildConfig
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+
+
 }
 apply from:'../config.gradle'
 
 android {
-
-    defaultConfig {
-        applicationId "com.littonishir.myarouter"
-    }
     compileSdkVersion BuildConfig.compileSdkVersion
     buildToolsVersion BuildConfig.buildToolsVersion
 
@@ -24,9 +22,6 @@ android {
 }
 
 dependencies {
-
-
-
     implementation project(':my')
     implementation project(':home')
     implementation project(':common')

@@ -2,7 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.littonishir.home">
 
-    <application>
+    <application
+        android:name=".Home"
+        >
         <activity android:name=".HomeActivity"/>
     </application>
 

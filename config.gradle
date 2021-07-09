@@ -2,16 +2,13 @@ apply plugin: 'com.version.plugin'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-parcelize'
+apply plugin: 'dagger.hilt.android.plugin'
 
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion "30.0.3"
+
     defaultConfig {
-        minSdkVersion 23
-        targetSdkVersion 30
-        versionCode 1
-        versionName "1.0.0"
+
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
@@ -19,8 +16,10 @@ android {
             arguments {
                 arg("AROUTER_MODULE_NAME", project.getName())
             }
+            javacOptions {
+                option("-Adagger.hilt.android.internal.disableAndroidSuperclassValidation=true")
+            }
         }
-
     }
 
     buildTypes {
@@ -33,24 +32,17 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-
-
-    buildFeatures {
-        dataBinding = true
-        // for view binding :
-        // viewBinding = true
+    buildFeatures{
+        viewBinding = true
     }
-
     kotlinOptions {
         jvmTarget = '1.8'
     }
 }
 
 dependencies {//implementation 表示不依赖模块下的三方库 api 表示依赖模块下所有的库
-
-
     implementation "com.alibaba:arouter-api:1.5.2"
     kapt "com.alibaba:arouter-compiler:1.5.2"
-
-
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
 }

@@ -1,8 +1,4 @@
 rootProject.name = "MyARouter"
 includeBuild("VersionPlugin")
-include ':app'
-include ':common'
-
-include ':my'
-include ':home'
+include ':app',':common',':network',':home',':my'
 

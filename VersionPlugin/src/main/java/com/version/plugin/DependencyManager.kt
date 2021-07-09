@@ -30,6 +30,14 @@ object Versions {
 }
 
 object AndroidX {
+    // lifecycle + viewModel
+    const val lifecycleExtensions = "androidx.lifecycle:lifecycle-extensions:2.2.0"
+    const val lifecycleViewmodelKtx = "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0-alpha02"
+    const val lifecycleRuntime = "androidx.lifecycle:lifecycle-runtime-runtime:2.3.1"
+    const val lifecycleLivedataKtx = "androidx.lifecycle:lifecycle-livedata-ktx:2.4.0-alpha02"
+
+    
+
     const val appcompat = "androidx.appcompat:appcompat:${Versions.appcompat}"
     const val coreKtx = "androidx.core:core-ktx:${Versions.coreKtx}"
     const val constraintlayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintlayout}"
@@ -39,8 +47,10 @@ object AndroidX {
     const val workTesting = "androidx.work:work-testing:${Versions.work}"
     const val recyclerview = "androidx.recyclerview:recyclerview:${Versions.recyclerview}"
 
-
-
+}
+object ARouter {
+    const val api = "com.alibaba:arouter-api:1.5.2"
+    const val compiler = "com.alibaba:arouter-compiler:1.5.2"
 }
 
 object Room {
@@ -91,6 +101,10 @@ object Depend {
     const val androidTestJunit = "androidx.test.ext:junit:${Versions.junitExt}"
     const val espressoCore = "androidx.test.espresso:espresso-core:${Versions.espressoCore}"
     const val androidMaterial = "com.google.android.material:material:${Versions.material}"
+    const val BaseRecyclerViewAdapterHelper = "com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4"
+    const val autosize = "me.jessyan:autosize:1.1.2"
+
+
 
 }
 

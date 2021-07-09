@@ -5,10 +5,19 @@ if (BuildConfig.isModule) {
 } else {
     apply plugin: 'com.android.library'
 }
-
 apply from: '../config.gradle'
 
 android {
+    compileSdkVersion BuildConfig.compileSdkVersion
+    buildToolsVersion BuildConfig.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion BuildConfig.minSdkVersion
+        targetSdkVersion BuildConfig.targetSdkVersion
+        versionCode BuildConfig.versionCode
+        versionName BuildConfig.versionName
+    }
+
     sourceSets {
         main {
             if (BuildConfig.isModule) {

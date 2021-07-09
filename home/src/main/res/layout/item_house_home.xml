@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:paddingTop="@dimen/size_15dp"
+    android:paddingStart="@dimen/size_15dp"
+    android:paddingBottom="@dimen/size_15dp"
+    android:paddingEnd="@dimen/size_15dp">
+
+    <ImageView
+        android:id="@+id/iv_home_item"
+        android:layout_width="@dimen/size_110dp"
+        android:layout_height="@dimen/size_80dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/vr"
+        android:visibility="gone"
+        android:layout_marginBottom="@dimen/size_9dp"
+        android:layout_marginStart="@dimen/size_7.5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_home_item"
+        app:layout_constraintStart_toStartOf="@+id/iv_home_item" />
+
+    <TextView
+        android:id="@+id/tv_house_title"
+        android:layout_width="0dp"
+        android:maxLines="1"
+        app:layout_constraintHorizontal_weight="1"
+        android:layout_height="wrap_content"
+        android:text="整租-天下第一城"
+        android:textColor="@color/text_black10"
+        android:textSize="@dimen/size_14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/tv_house_type"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tv_house_type"
+        app:layout_constraintTop_toTopOf="@+id/iv_home_item"
+        app:layout_constraintVertical_chainStyle="spread_inside" />
+
+    <TextView
+        android:id="@+id/tv_house_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="朝阳区 | 2室1厅 | 90㎡"
+        android:textColor="@color/text_black9"
+        android:textSize="@dimen/size_11sp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_house_add"
+        app:layout_constraintStart_toStartOf="@+id/tv_house_add"
+        app:layout_constraintTop_toBottomOf="@+id/tv_house_title" />
+
+    <TextView
+        android:id="@+id/tv_house_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxEms="16"
+        android:maxLines="1"
+        android:paddingStart="@dimen/size_7.5dp"
+        android:paddingEnd="@dimen/size_7.5dp"
+        android:textColor="#8B979E"
+        android:textSize="@dimen/size_10sp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_house_price"
+        app:layout_constraintStart_toStartOf="@+id/tv_house_price"
+        app:layout_constraintTop_toBottomOf="@+id/tv_house_type" />
+
+    <TextView
+        android:id="@+id/tv_house_add1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxEms="16"
+        android:layout_marginStart="@dimen/size_5.5dp"
+        android:maxLines="1"
+        android:visibility="gone"
+        android:paddingStart="@dimen/size_7.5dp"
+        android:paddingEnd="@dimen/size_7.5dp"
+        android:textColor="@color/white"
+        android:textSize="@dimen/size_10sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_house_add"
+        app:layout_constraintStart_toEndOf="@+id/tv_house_add"
+        app:layout_constraintTop_toTopOf="@+id/tv_house_add" />
+    <TextView
+        android:id="@+id/tv_house_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="¥2400"
+        android:layout_marginStart="@dimen/size_15.5dp"
+        android:textColor="@color/colorOrange"
+        android:textSize="@dimen/size_14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_home_item"
+        app:layout_constraintStart_toEndOf="@+id/iv_home_item"
+        app:layout_constraintTop_toBottomOf="@+id/tv_house_add" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/size_3.5dp"
+        android:text="/月"
+        android:textColor="@color/colorOrange"
+        android:textSize="@dimen/size_10sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_house_price"/>
+
+    <TextView
+        android:id="@+id/tv_house_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/text_black9"
+        android:textSize="@dimen/size_11sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_house_price"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_house_price" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

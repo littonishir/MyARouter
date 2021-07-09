@@ -5,12 +5,15 @@ import android.content.Context
 import com.alibaba.android.arouter.launcher.ARouter
 import com.littonishir.common.Common
 import com.littonishir.myarouter.utils.isDebug
+import dagger.hilt.android.HiltAndroidApp
 
+@HiltAndroidApp
 class App : Application() {
     private var moduleApplication : Common? = null
 
     override fun onCreate() {
         super.onCreate()
+        mContext = this
 //        initARouter()
         iniLibApp()
     }
@@ -60,5 +63,9 @@ class App : Application() {
             e.printStackTrace()
         }
         return moduleApplication
+    }
+    companion object{
+        lateinit var mContext: Application
+
     }
 }
